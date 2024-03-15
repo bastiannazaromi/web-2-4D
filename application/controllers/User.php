@@ -62,7 +62,6 @@ class User extends CI_Controller
 
 	public function delete($id)
 	{
-
 		$this->db->where('id', $id);
 		$delete = $this->db->delete('user');
 

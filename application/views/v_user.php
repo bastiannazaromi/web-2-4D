@@ -29,6 +29,8 @@
 						<th>No</th>
 						<th>Nama</th>
 						<th>Username</th>
+						<th>Email</th>
+						<th>Tahun</th>
 						<th>Action</th>
 					</tr>
 					<?php foreach ($user as $i => $usr) : ?>
@@ -36,6 +38,8 @@
 							<td><?php echo $i + 1; ?></td>
 							<td><?php echo $usr->nama; ?></td>
 							<td><?php echo $usr->username; ?></td>
+							<td><?php echo $usr->email; ?></td>
+							<td><?php echo $usr->tahun; ?></td>
 							<td>
 								<a href="<?= base_url('user/delete/' . $usr->id); ?>" class="btn btn-danger btn-sm">Hapus</a>
 							</td>
