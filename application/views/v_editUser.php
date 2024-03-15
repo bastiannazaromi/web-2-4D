@@ -19,21 +19,22 @@
 		<div class="row mb-3">
 			<div class="col-lg-6">
 				<form action="<?= base_url('user/update'); ?>" method="post">
+					<input type="hidden" name="id" value="<?php echo $user->id; ?>">
 					<div class="form-group">
 						<label>Username</label>
-						<input type="text" name="username" class="form-control">
+						<input type="text" name="username" class="form-control" value="<?php echo $user->username; ?>">
 					</div>
 					<div class="form-group">
 						<label>Nama</label>
-						<input type="text" name="nama" class="form-control">
+						<input type="text" name="nama" class="form-control" value="<?php echo $user->nama; ?>">
 					</div>
 					<div class="form-group">
 						<label>Email</label>
-						<input type="email" name="email" class="form-control">
+						<input type="email" name="email" class="form-control" value="<?php echo $user->email; ?>">
 					</div>
 					<div class="form-group">
 						<label>Tahun</label>
-						<input type="number" name="tahun" class="form-control">
+						<input type="number" name="tahun" class="form-control" value="<?php echo $user->tahun; ?>">
 					</div>
 					<button type="submit" class="btn btn-success">Simpan</button>
 				</form>
