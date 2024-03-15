@@ -14,39 +14,29 @@
 
 <body>
 	<div class="container">
-		<h1>Hello, world!</h1>
+		<h1><?php echo $title; ?></h1>
 
 		<div class="row mb-3">
-			<div class="col-lg-4">
-				<a href="<?= base_url('user/add'); ?>" class="btn btn-primary btn-sm">Tambah</a>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-xl-6">
-				<table class="table table-bordered table-striped">
-					<tr>
-						<th>No</th>
-						<th>Nama</th>
-						<th>Username</th>
-						<th>Email</th>
-						<th>Tahun</th>
-						<th>Action</th>
-					</tr>
-					<?php foreach ($user as $i => $usr) : ?>
-						<tr>
-							<td><?php echo $i + 1; ?></td>
-							<td><?php echo $usr->nama; ?></td>
-							<td><?php echo $usr->username; ?></td>
-							<td><?php echo $usr->email; ?></td>
-							<td><?php echo $usr->tahun; ?></td>
-							<td>
-								<a href="<?= base_url('user/edit/' . $usr->id); ?>" class="btn btn-warning btn-sm">Edit</a>
-								<a href="<?= base_url('user/delete/' . $usr->id); ?>" class="btn btn-danger btn-sm">Hapus</a>
-							</td>
-						</tr>
-					<?php endforeach; ?>
-				</table>
+			<div class="col-lg-6">
+				<form action="<?= base_url('user/update'); ?>" method="post">
+					<div class="form-group">
+						<label>Username</label>
+						<input type="text" name="username" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>Nama</label>
+						<input type="text" name="nama" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" name="email" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>Tahun</label>
+						<input type="number" name="tahun" class="form-control">
+					</div>
+					<button type="submit" class="btn btn-success">Simpan</button>
+				</form>
 			</div>
 		</div>
 	</div>
