@@ -22,6 +22,18 @@
 			</div>
 		</div>
 
+		<?php if ($this->session->flashdata('sukses')) : ?>
+			<div class="alert alert-success" role="alert">
+				<?= $this->session->flashdata('sukses'); ?>
+			</div>
+		<?php endif; ?>
+
+		<?php if ($this->session->flashdata('error')) : ?>
+			<div class="alert alert-danger" role="alert">
+				<?= $this->session->flashdata('error'); ?>
+			</div>
+		<?php endif; ?>
+
 		<div class="row">
 			<div class="col-xl-6">
 				<table class="table table-bordered table-striped">
@@ -42,7 +54,7 @@
 							<td><?php echo $usr->tahun; ?></td>
 							<td>
 								<a href="<?= base_url('user/edit/' . $usr->id); ?>" class="btn btn-warning btn-sm">Edit</a>
-								<a href="<?= base_url('user/delete/' . $usr->id); ?>" class="btn btn-danger btn-sm">Hapus</a>
+								<a href="<?= base_url('user/delete/' . $usr->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin data akan dihapus ?')">Hapus</a>
 							</td>
 						</tr>
 					<?php endforeach; ?>
