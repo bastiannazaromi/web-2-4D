@@ -19,4 +19,24 @@ class M_User extends CI_Model
 
 		return $this->db->get('user')->row();
 	}
+
+	// untuk hapus data user
+	public function delete($id)
+	{
+		$this->db->where('id', $id);
+		return $this->db->delete('user');
+	}
+
+	// untuk tambah data user
+	public function addUser($data)
+	{
+		return $this->db->insert('user', $data);
+	}
+
+	// untuk edit data user
+	public function editUser($id, $data)
+	{
+		$this->db->where('id', $id);
+		return $this->db->update('user', $data);
+	}
 }

@@ -18,20 +18,22 @@ class User extends CI_Controller
 
 		$data = [
 			'title' => 'Halaman User',
+			'page'  => 'user/v_user',
 			'user'  => $user
 		];
 
 		// memanggil view dengan nama v_user
-		$this->load->view('v_user', $data);
+		$this->load->view('index', $data);
 	}
 
 	public function add()
 	{
 		$data = [
-			'title' => 'Tambah User'
+			'title' => 'Tambah User',
+			'page'  => 'user/v_addUser'
 		];
 
-		$this->load->view('v_addUser', $data);
+		$this->load->view('index', $data);
 	}
 
 	public function store()
@@ -57,10 +59,11 @@ class User extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = [
-				'title' => 'Tambah User'
+				'title' => 'Tambah User',
+				'page'  => 'user/v_addUser'
 			];
 
-			$this->load->view('v_addUser', $data);
+			$this->load->view('index', $data);
 		} else {
 			$username = $this->input->post('username');
 			$nama     = $this->input->post('nama');
@@ -75,7 +78,7 @@ class User extends CI_Controller
 				'tahun'    => $tahun
 			];
 
-			$insert = $this->db->insert('user', $data);
+			$insert = $this->user->addUser($data);
 
 			if ($insert) {
 				$this->session->set_flashdata('sukses', 'Data berhasil disimpan');
@@ -95,10 +98,11 @@ class User extends CI_Controller
 
 		$data = [
 			'title' => 'Edit User',
+			'page'	=> 'user/v_editUser',
 			'user'  => $user
 		];
 
-		$this->load->view('v_editUser', $data);
+		$this->load->view('index', $data);
 	}
 
 	public function update()
@@ -124,10 +128,11 @@ class User extends CI_Controller
 
 			$data = [
 				'title' => 'Edit User',
+				'page'  => 'user/v_editUser',
 				'user'  => $user
 			];
 
-			$this->load->view('v_editUser', $data);
+			$this->load->view('index', $data);
 		} else {
 			$username = $this->input->post('username');
 			$nama     = $this->input->post('nama');
@@ -141,8 +146,7 @@ class User extends CI_Controller
 				'tahun'    => $tahun
 			];
 
-			$this->db->where('id', $id);
-			$update = $this->db->update('user', $data);
+			$update = $this->user->editUser($id, $data);
 
 			if ($update) {
 				$this->session->set_flashdata('sukses', 'Data berhasil diedit');
@@ -158,8 +162,7 @@ class User extends CI_Controller
 
 	public function delete($id)
 	{
-		$this->db->where('id', $id);
-		$delete = $this->db->delete('user');
+		$delete = $this->user->delete($id);
 
 		if ($delete) {
 			$this->session->set_flashdata('sukses', 'Data berhasil dihapus');
