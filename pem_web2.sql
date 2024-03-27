@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 13, 2024 at 06:53 AM
+-- Generation Time: Mar 27, 2024 at 07:09 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -32,6 +32,8 @@ CREATE TABLE `user` (
   `username` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL,
   `nama` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `tahun` int(4) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -40,9 +42,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `nama`, `createdAt`, `updatedAt`) VALUES
-(1, 'admin', 'llklkhalghalhglkah', 'Admin', '2024-03-07 03:48:46', NULL),
-(2, 'operator', 'kllflkanslfsaf', 'Operator', '2024-03-07 03:49:02', NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `nama`, `email`, `tahun`, `createdAt`, `updatedAt`) VALUES
+(3, 'admin', 'jslalf', 'Admin', 'admin@gmail.com', 2024, '2024-03-13 07:13:19', '2024-03-22 02:49:10'),
+(32, 'lhhl', '$2y$10$Kr8I1dOrRz2nf3L6ZGwjbuVCQzShX/36M2t5hcT8fvGYWhwTUI78O', 'lkhlkh', 'lkhlk@gmail.com', 1234, '2024-03-22 03:01:30', NULL);
 
 --
 -- Indexes for dumped tables
@@ -62,7 +64,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
