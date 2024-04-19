@@ -60,6 +60,19 @@ class Cinema extends CI_Controller
 			}
 		}
 	}
+
+	public function edit($id)
+	{
+		$cinema = $this->cinema->getOneCinema($id);
+
+		$data = [
+			'title'  => 'Edit Cinema',
+			'page'   => 'cinema/v_editCinema',
+			'cinema' => $cinema
+		];
+
+		$this->load->view('index', $data);
+	}
 }
 
 /* End of file Cinema.php */
