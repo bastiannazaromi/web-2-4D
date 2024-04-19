@@ -30,8 +30,8 @@
 							<form action="<?= base_url('cinema/store'); ?>" method="post">
 								<div class="form-group">
 									<label>Nama Cinema</label>
-									<input type="text" name="cinema" class="form-control" value="<?php echo set_value('cinema'); ?>">
-									<span class="text-danger"><?php echo form_error('cinema'); ?></span>
+									<input type="text" name="namaCinema" class="form-control" value="<?php echo set_value('namaCinema'); ?>">
+									<span class="text-danger"><?php echo form_error('namaCinema'); ?></span>
 								</div>
 								<button type="submit" class="btn btn-success">Simpan</button>
 							</form>

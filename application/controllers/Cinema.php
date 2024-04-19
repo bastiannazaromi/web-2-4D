@@ -31,6 +31,35 @@ class Cinema extends CI_Controller
 
 		$this->load->view('index', $data);
 	}
+
+	public function store()
+	{
+		$this->form_validation->set_rules('namaCinema', 'Nama Cinema', 'required', [
+			'required' => 'Nama cinema tidak boleh kosong!'
+		]);
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->add();
+		} else {
+			$namaCinema = $this->input->post('namaCinema');
+
+			$data = [
+				'namaCinema' => $namaCinema
+			];
+
+			$insert = $this->cinema->addCinema($data);
+
+			if ($insert) {
+				$this->session->set_flashdata('sukses', 'Data berhasil disimpan');
+
+				redirect('cinema', 'refresh');
+			} else {
+				$this->session->set_flashdata('error', 'Data gagal disimpan!');
+
+				redirect('cinema', 'refresh');
+			}
+		}
+	}
 }
 
 /* End of file Cinema.php */

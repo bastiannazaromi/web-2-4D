@@ -10,6 +10,12 @@ class M_Cinema extends CI_Model
 
 		return $this->db->get('cinema')->result();
 	}
+
+	// untuk tambah data cinema
+	public function addCinema($data)
+	{
+		return $this->db->insert('cinema', $data);
+	}
 }
 
 /* End of file M_Cinema.php */

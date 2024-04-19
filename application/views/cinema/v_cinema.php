@@ -61,8 +61,8 @@
 												<td><?php echo $cnm->namaCinema; ?></td>
 												<td>
 													<div class="btn-group">
-														<a href="<?= base_url('cinema/edit/' . $usr->id); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-														<a href="<?= base_url('cinema/delete/' . $usr->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin data akan dihapus ?')"><i class="fa fa-trash"></i></a>
+														<a href="<?= base_url('cinema/edit/' . $cnm->id); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+														<a href="<?= base_url('cinema/delete/' . $cnm->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin data akan dihapus ?')"><i class="fa fa-trash"></i></a>
 													</div>
 												</td>
 											</tr>
