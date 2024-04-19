@@ -8,6 +8,14 @@ class Login extends CI_Controller
 	{
 		parent::__construct();
 
+		if (!empty($this->session->userdata('user_login'))) {
+			if ($this->uri->segment(2) != 'logout') {
+				$this->session->set_flashdata('error', 'Anda sudah login');
+
+				redirect('admin', 'resfresh');
+			}
+		}
+
 		$this->load->model('M_Login', 'login');
 	}
 

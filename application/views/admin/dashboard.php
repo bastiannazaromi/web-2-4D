@@ -20,6 +20,18 @@
 	<!-- Main content -->
 	<section class="content">
 		<div class="container-fluid">
+			<?php if ($this->session->flashdata('sukses')) : ?>
+				<div class="alert alert-success" role="alert">
+					<?= $this->session->flashdata('sukses'); ?>
+				</div>
+			<?php endif; ?>
+
+			<?php if ($this->session->flashdata('error')) : ?>
+				<div class="alert alert-danger" role="alert">
+					<?= $this->session->flashdata('error'); ?>
+				</div>
+			<?php endif; ?>
+
 			<!-- Small boxes (Stat box) -->
 			<div class="row">
 				<div class="col-lg-3 col-6">
