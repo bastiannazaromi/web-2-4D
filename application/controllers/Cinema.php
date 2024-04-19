@@ -21,6 +21,16 @@ class Cinema extends CI_Controller
 
 		$this->load->view('index', $data);
 	}
+
+	public function add()
+	{
+		$data = [
+			'title' => 'Cinema User',
+			'page'  => 'cinema/v_addCinema'
+		];
+
+		$this->load->view('index', $data);
+	}
 }
 
 /* End of file Cinema.php */
