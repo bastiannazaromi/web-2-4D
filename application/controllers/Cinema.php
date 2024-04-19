@@ -104,6 +104,21 @@ class Cinema extends CI_Controller
 			}
 		}
 	}
+
+	public function delete($id)
+	{
+		$delete = $this->cinema->delete($id);
+
+		if ($delete) {
+			$this->session->set_flashdata('sukses', 'Data berhasil dihapus');
+
+			redirect($_SERVER['HTTP_REFERER'], 'refresh');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal dihapus');
+
+			redirect($_SERVER['HTTP_REFERER'], 'refresh');
+		}
+	}
 }
 
 /* End of file Cinema.php */

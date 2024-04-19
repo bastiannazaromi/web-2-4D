@@ -31,6 +31,13 @@ class M_Cinema extends CI_Model
 		$this->db->where('id', $id);
 		return $this->db->update('cinema', $data);
 	}
+
+	// untuk hapus data cinema
+	public function delete($id)
+	{
+		$this->db->where('id', $id);
+		return $this->db->delete('cinema');
+	}
 }
 
 /* End of file M_Cinema.php */
