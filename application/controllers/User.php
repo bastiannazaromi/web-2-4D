@@ -72,7 +72,7 @@ class User extends CI_Controller
 
 			$data = [
 				'username' => $username,
-				'password' => password_hash('user123', PASSWORD_BCRYPT),
+				'password' => password_hash('12345678', PASSWORD_BCRYPT),
 				'nama'     => $nama,
 				'email'    => $email,
 				'tahun'    => $tahun
