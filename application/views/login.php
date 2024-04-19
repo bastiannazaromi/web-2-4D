@@ -26,6 +26,18 @@
 			<div class="card-body login-card-body">
 				<p class="login-box-msg">Sign in to start your session</p>
 
+				<?php if ($this->session->flashdata('sukses')) : ?>
+					<div class="alert alert-success" role="alert">
+						<?= $this->session->flashdata('sukses'); ?>
+					</div>
+				<?php endif; ?>
+
+				<?php if ($this->session->flashdata('error')) : ?>
+					<div class="alert alert-danger" role="alert">
+						<?= $this->session->flashdata('error'); ?>
+					</div>
+				<?php endif; ?>
+
 				<form action="<?php echo base_url('login/proses'); ?>" method="post">
 					<div class="input-group mb-3">
 						<input type="text" name="username" class="form-control" placeholder="Input yout username">
