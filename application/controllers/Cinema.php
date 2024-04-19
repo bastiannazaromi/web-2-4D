@@ -7,7 +7,7 @@ class Cinema extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		// memanggil model dengan nama M_User dan di rename menjadi user
+		// memanggil model dengan nama M_User dan di rename menjadi cinema
 		$this->load->model('M_Cinema', 'cinema');
 	}
 
@@ -72,6 +72,37 @@ class Cinema extends CI_Controller
 		];
 
 		$this->load->view('index', $data);
+	}
+
+	public function update()
+	{
+		$id = $this->input->post('id');
+
+		$this->form_validation->set_rules('namaCinema', 'Nama Cinema', 'required', [
+			'required' => 'Nama cinema harus diisi!'
+		]);
+
+		if ($this->form_validation->run() == false) {
+			$this->edit($id);
+		} else {
+			$namaCinema = $this->input->post('namaCinema');
+
+			$data = [
+				'namaCinema' => $namaCinema
+			];
+
+			$update = $this->cinema->editCinema($id, $data);
+
+			if ($update) {
+				$this->session->set_flashdata('sukses', 'Data berhasil diedit');
+
+				redirect('cinema', 'refresh');
+			} else {
+				$this->session->set_flashdata('error', 'Data gagak diedit');
+
+				redirect('cinema', 'refresh');
+			}
+		}
 	}
 }
 
