@@ -20,9 +20,12 @@ class Jadwal extends CI_Controller
 
 	public function index()
 	{
+		$jadwal = $this->jadwal->getAllJadwal();
+
 		$data = [
-			'title' => 'Jadwal Tayang',
-			'page'  => 'jadwal/v_jadwal'
+			'title'  => 'Jadwal Tayang',
+			'page'   => 'jadwal/v_jadwal',
+			'jadwal' => $jadwal
 		];
 
 		$this->load->view('index', $data);

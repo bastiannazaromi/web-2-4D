@@ -55,14 +55,30 @@
 											<th>Durasi Film</th>
 											<th>Cinema</th>
 											<th>Tanggal</th>
-											<th>Jam Tayang</th>
 											<th>Jumlah Kursi</th>
 											<th>Kursi Terjual</th>
 											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
-
+										<?php foreach ($jadwal as $i => $jdw) : ?>
+											<tr>
+												<td><?php echo $i + 1; ?></td>
+												<td><?php echo $jdw->judul; ?></td>
+												<td><?php echo $jdw->genre; ?></td>
+												<td><?php echo $jdw->durasi; ?></td>
+												<td><?php echo $jdw->namaCinema; ?></td>
+												<td><?php echo date('d M Y', strtotime($jdw->tanggal)) . ' - ' . date('H:i', strtotime($jdw->jamTayang)); ?></td>
+												<td><?php echo $jdw->jumlahKursi; ?></td>
+												<td><?php echo $jdw->kursiTerjual; ?></td>
+												<td>
+													<div class="btn-group">
+														<a href="<?= base_url('cinema/edit/' . $jdw->id); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+														<a href="<?= base_url('cinema/delete/' . $jdw->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin data akan dihapus ?')"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+											</tr>
+										<?php endforeach; ?>
 									</tbody>
 								</table>
 							</div>
