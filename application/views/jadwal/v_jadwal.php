@@ -73,8 +73,8 @@
 												<td><?php echo $jdw->kursiTerjual; ?></td>
 												<td>
 													<div class="btn-group">
-														<a href="<?= base_url('cinema/edit/' . $jdw->id); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-														<a href="<?= base_url('cinema/delete/' . $jdw->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin data akan dihapus ?')"><i class="fa fa-trash"></i></a>
+														<a href="<?= base_url('jadwal/edit/' . $jdw->id); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+														<a href="<?= base_url('jadwal/delete/' . $jdw->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin data akan dihapus ?')"><i class="fa fa-trash"></i></a>
 													</div>
 												</td>
 											</tr>

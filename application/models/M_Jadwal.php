@@ -19,6 +19,12 @@ class M_Jadwal extends CI_Model
 
 		return $this->db->get('jadwal_tayang')->result();
 	}
+
+	public function delete($id)
+	{
+		$this->db->where('id', $id);
+		return $this->db->delete('jadwal_tayang');
+	}
 }
 
 /* End of file M_Jadwal.php */
