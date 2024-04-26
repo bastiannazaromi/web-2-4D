@@ -31,7 +31,7 @@ class Cinema extends CI_Controller
 	public function add()
 	{
 		$data = [
-			'title' => 'Cinema User',
+			'title' => 'Cinema',
 			'page'  => 'cinema/v_addCinema'
 		];
 

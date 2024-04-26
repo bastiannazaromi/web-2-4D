@@ -12,6 +12,9 @@ class Jadwal extends CI_Controller
 
 			redirect('login', 'resfresh');
 		}
+
+		$this->load->model('M_Cinema', 'cinema');
+		$this->load->model('M_Film', 'film');
 	}
 
 	public function index()
@@ -19,6 +22,18 @@ class Jadwal extends CI_Controller
 		$data = [
 			'title' => 'Jadwal Tayang',
 			'page'  => 'jadwal/v_jadwal'
+		];
+
+		$this->load->view('index', $data);
+	}
+
+	public function add()
+	{
+		$data = [
+			'title'  => 'Jadwal Tayang',
+			'page'   => 'jadwal/v_addJadwal',
+			'cinema' => $this->cinema->getAllCinema(),
+			'film'   => $this->film->getAllFilm()
 		];
 
 		$this->load->view('index', $data);
