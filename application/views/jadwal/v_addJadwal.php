@@ -33,34 +33,37 @@
 									<select name="idCinema" class="form-control">
 										<option value="">-- Pilih Cinema --</option>
 										<?php foreach ($cinema as $cin) : ?>
-											<option value="<?php echo $cin->id; ?>"><?php echo $cin->namaCinema; ?></option>
+											<option value="<?php echo $cin->id; ?>" <?php echo (set_value('idCinema') == $cin->id) ? 'selected' : ''; ?>><?php echo $cin->namaCinema; ?></option>
 										<?php endforeach; ?>
 									</select>
 									<span class="text-danger"><?php echo form_error('idCinema'); ?></span>
 								</div>
+
+								<!-- $cek = (1 < 2) ? 'benar' : 'salah'; -->
+
 								<div class="form-group">
 									<label>Judul Film</label>
 									<select name="idFilm" class="form-control">
 										<option value="">-- Pilih Judul Film --</option>
 										<?php foreach ($film as $fil) : ?>
-											<option value="<?php echo $fil->id; ?>"><?php echo $fil->judul . ' - ' . $fil->genre; ?></option>
+											<option value="<?php echo $fil->id; ?>" <?php echo (set_value('idFilm') == $fil->id) ? 'selected' : ''; ?>><?php echo $fil->judul . ' - ' . $fil->genre; ?></option>
 										<?php endforeach; ?>
 									</select>
 									<span class="text-danger"><?php echo form_error('idFilm'); ?></span>
 								</div>
 								<div class="form-group">
 									<label>Tanggal</label>
-									<input type="date" name="tanggal" class="form-control">
+									<input type="date" name="tanggal" class="form-control" value="<?php echo set_value('tanggal'); ?>">
 									<span class="text-danger"><?php echo form_error('tanggal'); ?></span>
 								</div>
 								<div class="form-group">
 									<label>Jam</label>
-									<input type="text" name="jamTayang" class="form-control" placeholder="00:00" autocomplete="off">
+									<input type="text" name="jamTayang" class="form-control" placeholder="00:00" autocomplete="off" value="<?php echo set_value('jamTayang'); ?>">
 									<span class="text-danger"><?php echo form_error('jamTayang'); ?></span>
 								</div>
 								<div class="form-group">
 									<label>Jumlah Kursi</label>
-									<input type="number" name="jumlahKursi" class="form-control">
+									<input type="number" name="jumlahKursi" class="form-control" value="<?php echo set_value('jumlahKursi'); ?>">
 									<span class="text-danger"><?php echo form_error('jumlahKursi'); ?></span>
 								</div>
 								<button type="submit" class="btn btn-success">Simpan</button>
