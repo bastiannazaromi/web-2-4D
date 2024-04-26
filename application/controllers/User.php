@@ -6,6 +6,12 @@ class User extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		if (empty($this->session->userdata('user_login'))) {
+			$this->session->set_flashdata('error', 'Anda belum login');
+
+			redirect('login', 'resfresh');
+		}
+
 		// memanggil model dengan nama M_User dan di rename menjadi user
 		$this->load->model('M_User', 'user');
 	}
