@@ -48,6 +48,26 @@
 									</select>
 									<span class="text-danger"><?php echo form_error('idFilm'); ?></span>
 								</div>
+								<div class="form-group">
+									<label>Tanggal</label>
+									<input type="date" name="tanggal" class="form-control">
+									<span class="text-danger"><?php echo form_error('tanggal'); ?></span>
+								</div>
+								<div class="form-group">
+									<label>Jam</label>
+									<input type="text" name="jam" class="form-control" placeholder="00:00" autocomplete="off">
+									<span class="text-danger"><?php echo form_error('jam'); ?></span>
+								</div>
+								<div class="form-group">
+									<label>Jumlah Kursi</label>
+									<input type="number" name="jumlahKursi" class="form-control">
+									<span class="text-danger"><?php echo form_error('jumlahKursi'); ?></span>
+								</div>
+								<div class="form-group">
+									<label>Kursi Terjual</label>
+									<input type="number" name="kursiTerjual" class="form-control">
+									<span class="text-danger"><?php echo form_error('kursiTerjual'); ?></span>
+								</div>
 								<button type="submit" class="btn btn-success">Simpan</button>
 							</form>
 						</div>

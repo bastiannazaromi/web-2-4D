@@ -38,6 +38,10 @@ class Jadwal extends CI_Controller
 
 		$this->load->view('index', $data);
 	}
+
+	public function store()
+	{
+	}
 }
 
 /* End of file Jadwal.php */
