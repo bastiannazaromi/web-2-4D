@@ -55,18 +55,13 @@
 								</div>
 								<div class="form-group">
 									<label>Jam</label>
-									<input type="text" name="jam" class="form-control" placeholder="00:00" autocomplete="off">
-									<span class="text-danger"><?php echo form_error('jam'); ?></span>
+									<input type="text" name="jamTayang" class="form-control" placeholder="00:00" autocomplete="off">
+									<span class="text-danger"><?php echo form_error('jamTayang'); ?></span>
 								</div>
 								<div class="form-group">
 									<label>Jumlah Kursi</label>
 									<input type="number" name="jumlahKursi" class="form-control">
 									<span class="text-danger"><?php echo form_error('jumlahKursi'); ?></span>
-								</div>
-								<div class="form-group">
-									<label>Kursi Terjual</label>
-									<input type="number" name="kursiTerjual" class="form-control">
-									<span class="text-danger"><?php echo form_error('kursiTerjual'); ?></span>
 								</div>
 								<button type="submit" class="btn btn-success">Simpan</button>
 							</form>
