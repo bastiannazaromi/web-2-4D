@@ -67,6 +67,11 @@ class Orders extends CI_Controller
 			$insert = $this->orders->addOrders($data);
 
 			if ($insert) {
+				$jadwal_tayang = $this->jadwal->getOneJadwal($idJadwal);
+
+				$this->db->where('id', $idJadwal);
+				$this->db->update('jadwal_tayang', ['kursiTerjual' => $jadwal_tayang->kursiTerjual + $jumlah]);
+
 				$this->session->set_flashdata('sukses', 'Data berhasil disimpan');
 			} else {
 				$this->session->set_flashdata('error', 'Data gagal disimpan!');
