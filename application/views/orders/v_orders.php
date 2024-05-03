@@ -62,7 +62,21 @@
 									</thead>
 									<tbody>
 										<?php foreach ($orders as $i => $order) : ?>
-
+											<tr>
+												<td><?php echo $i + 1; ?></td>
+												<td><?php echo $order->nama; ?></td>
+												<td><?php echo $order->judul; ?></td>
+												<td><?php echo $order->namaCinema; ?></td>
+												<td><?php echo date('d M Y', strtotime($order->tanggal)) . ' - ' . date('H:i', strtotime($order->jamTayang)); ?></td>
+												<td><?php echo $order->jumlah; ?></td>
+												<td><?php echo $order->no_kursi; ?></td>
+												<td><?php echo 'Rp. ' . number_format($order->harga, 0, ',', '.'); ?></td>
+												<td>
+													<div class="btn-group">
+														<a href="<?= base_url('orders/delete/' . $order->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin data akan dihapus ?')"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+											</tr>
 										<?php endforeach; ?>
 									</tbody>
 								</table>

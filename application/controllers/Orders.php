@@ -22,7 +22,7 @@ class Orders extends CI_Controller
 		$data = [
 			'title'  => 'List Orders',
 			'page'   => 'orders/v_orders',
-			'orders' => []
+			'orders' => $this->orders->getAllOrders()
 		];
 
 		$this->load->view('index', $data);
