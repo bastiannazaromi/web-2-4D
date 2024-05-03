@@ -20,6 +20,19 @@ class M_Jadwal extends CI_Model
 		return $this->db->get('jadwal_tayang')->result();
 	}
 
+	public function getOneJadwal($id)
+	{
+		$this->db->where('id', $id);
+
+		return $this->db->get('jadwal_tayang')->row();
+	}
+
+	public function editJadwal($id, $data)
+	{
+		$this->db->where('id', $id);
+		return $this->db->update('jadwal_tayang', $data);
+	}
+
 	public function delete($id)
 	{
 		$this->db->where('id', $id);

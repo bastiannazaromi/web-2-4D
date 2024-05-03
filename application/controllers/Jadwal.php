@@ -80,6 +80,62 @@ class Jadwal extends CI_Controller
 		}
 	}
 
+	public function edit($id)
+	{
+		$jadwal = $this->jadwal->getOneJadwal($id);
+
+		$data = [
+			'title'  => 'Edit Jadwal',
+			'page'   => 'jadwal/v_editJadwal',
+			'jadwal' => $jadwal,
+			'cinema' => $this->cinema->getAllCinema(),
+			'film'   => $this->film->getAllFilm()
+		];
+
+		$this->load->view('index', $data);
+	}
+
+	public function update()
+	{
+		$id = $this->input->post('id');
+
+		$this->form_validation->set_rules('idCinema', 'Nama Cinema', 'required');
+		$this->form_validation->set_rules('idFilm', 'Nama Film', 'required');
+		$this->form_validation->set_rules('tanggal', 'Tanggal Tayang', 'required');
+		$this->form_validation->set_rules('jamTayang', 'Jam Tayang', 'required');
+		$this->form_validation->set_rules('jumlahKursi', 'Jumlah Kursi', 'required|numeric');
+
+		if ($this->form_validation->run() == false) {
+			$this->edit($id);
+		} else {
+			$idCinema    = $this->input->post('idCinema');
+			$idFilm      = $this->input->post('idFilm');
+			$tanggal     = $this->input->post('tanggal');
+			$jamTayang   = $this->input->post('jamTayang');
+			$jumlahKursi = $this->input->post('jumlahKursi');
+
+			$data = [
+				'idCinema'    => $idCinema,
+				'idFilm'      => $idFilm,
+				'tanggal'     => $tanggal,
+				'jamTayang'   => $jamTayang,
+				'jumlahKursi' => $jumlahKursi
+			];
+
+			$update = $this->jadwal->editJadwal($id, $data);
+
+			if ($update) {
+				$this->session->set_flashdata('sukses', 'Data berhasil diedit');
+
+				redirect('jadwal', 'refresh');
+			} else {
+				$this->session->set_flashdata('error', 'Data gagak diedit');
+
+				redirect('jadwal', 'refresh');
+			}
+		}
+	}
+
 	public function delete($id)
 	{
 		$delete = $this->jadwal->delete($id);
