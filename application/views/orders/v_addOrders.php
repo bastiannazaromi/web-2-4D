@@ -46,8 +46,15 @@
 									<label>Jumlah Kursi Tersedia</label>
 									<input type="number" class="form-control" readonly name="kursi" id="kursi">
 								</div>
-
-								<button type="submit" class="btn btn-success">Simpan</button>
+								<div class="form-group">
+									<label>Jumlah Order</label>
+									<input type="number" class="form-control" name="jumlah" id="jumlah">
+								</div>
+								<div class="form-group">
+									<label>No Kursi</label>
+									<input type="text" class="form-control" name="no_kursi" id="no_kursi">
+								</div>
+								<button type="submit" class="btn btn-success" id="btn_simpan">Simpan</button>
 							</form>
 						</div>
 					</div>
@@ -63,7 +70,38 @@
 		let tanggal = $(this).find(':selected').data('tanggal');
 		let kursi = $(this).find(':selected').data('kursi');
 
+		kursi = parseInt(kursi);
+
 		$('#tanggal').val(tanggal);
 		$('#kursi').val(kursi);
-	})
+
+		$('#jumlah').val('');
+		$('#no_kursi').val('');
+
+		if (kursi == 0) {
+			$('#btn_simpan').prop('disabled', true);
+		} else {
+			$('#btn_simpan').prop('disabled', false);
+		}
+	});
+
+	$('#jumlah').change(function() {
+		let jumlah = $(this).val();
+		jumlah = parseInt(jumlah);
+
+		let kursiTersedia = $('#kursi').val();
+		kursiTersedia = parseInt(kursiTersedia);
+
+		if (kursiTersedia != 0) {
+			if (jumlah > kursiTersedia) {
+				$('#btn_simpan').prop('disabled', true);
+
+				alert('Jumlah order tidak boleh melebihi kursi tersedia!');
+			} else {
+				$('#btn_simpan').prop('disabled', false);
+			}
+		} else {
+			$('#btn_simpan').prop('disabled', true);
+		}
+	});
 </script>
